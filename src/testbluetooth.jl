@@ -27,6 +27,9 @@ function (@main)(ARGS)
 		write(peri, rxchar, JSON.json("cmd"=>"get_config"))
 		responce = read(peri, txchar) |> JSON.parse
 		println(JSON.json(responce))
+		readline()
+		responce = read(peri, txchar) |> JSON.parse
+		println(JSON.json(responce))
 	end
 end
 
