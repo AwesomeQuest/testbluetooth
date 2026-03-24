@@ -33,8 +33,10 @@ function (@main)(ARGS)
 			put!(usersaidyes, true)
 		end
 		take!(usersaidyes)
-		responce = read(peri, txchar) |> JSON.parse
-		println(JSON.json(responce))
+		while !isready(usersaidyes)
+			responce = read(peri, txchar) |> JSON.parse
+			println(JSON.json(responce))
+		end
 	end
 end
 
