@@ -32,7 +32,6 @@ function (@main)(ARGS)
 			readline()
 			put!(usersaidyes, true)
 		end
-		take!(usersaidyes)
 		while !isready(usersaidyes)
 			responce = read(peri, txchar) |> JSON.parse
 			println(JSON.json(responce))
