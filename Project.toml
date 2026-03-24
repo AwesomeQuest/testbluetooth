@@ -1,0 +1,14 @@
+name = "testbluetooth"
+uuid = "52ec9b4c-74eb-4bfd-98fc-9000c6dcf858"
+version = "0.1.0"
+authors = ["Awesome Quest <torfit@gmail.com>"]
+
+[deps]
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+SimpleBLE = "c43e3543-e659-46d0-a341-79c7b8740d4a"
+
+[compat]
+JSON = "1.4.0"
+SimpleBLE = "0.1.0"
+
+[apps.testbluetooth]
