@@ -27,7 +27,12 @@ function (@main)(ARGS)
 		write(peri, rxchar, JSON.json("cmd"=>"get_config"))
 		responce = read(peri, txchar) |> JSON.parse
 		println(JSON.json(responce))
-		readline()
+		usersaidyes = Channel{Bool}()
+		@async begin 
+			readline()
+			put!(usersaidyes, true)
+		end
+		take!(usersaidyes)
 		responce = read(peri, txchar) |> JSON.parse
 		println(JSON.json(responce))
 	end
