@@ -59,9 +59,7 @@ version = "0.7.0"
 
 [[deps.SimpleBLE]]
 deps = ["JSON"]
-git-tree-sha1 = "12c30d8376fbfbbd0ad24010c918cd3f1972258d"
-repo-rev = "main"
-repo-url = "https://github.com/AwesomeQuest/SimpleBLE.jl.git"
+path = "../SimpleBLE"
 uuid = "c43e3543-e659-46d0-a341-79c7b8740d4a"
 version = "0.1.0"
 
@@ -99,4 +97,4 @@ version = "1.11.0"
 deps = ["JSON", "SimpleBLE"]
 path = "."
 uuid = "52ec9b4c-74eb-4bfd-98fc-9000c6dcf858"
-version = "0.1.0"
+version = "0.1.5"

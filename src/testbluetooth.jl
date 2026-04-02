@@ -21,26 +21,15 @@ function (@main)(ARGS)
 
 		write(peri, rxchar, JSON.json(Dict("cmd"=>"start")))
 		write(peri, rxchar, JSON.json(Dict("cmd"=>"set_rate", "rate"=>0)))
-		sleep(1)
-		responce = read(peri, txchar) |> JSON.parse
-		println(JSON.json(responce))
-		write(peri, rxchar, JSON.json("cmd"=>"get_config"))
-		responce = read(peri, txchar) |> JSON.parse
-		println(JSON.json(responce))
-		usersaidyes = Channel{Bool}()
-		@async begin 
-			readline()
-			put!(usersaidyes, true)
-		end
-		while !isready(usersaidyes)
-			try
-				responce = read(peri, txchar) |> JSON.parse
-				println(JSON.json(responce))
-			catch e
-				@error e
-			end
-		end
+
+		peripheral_notify(peri, txchar.serviceuuid, txchar.uuid, data->begin
+			print("Recived data: ")
+			println(String(data))
+		end)
+		println("Waiting")
+		readline()
 	end
+	return 0
 end
 
 
